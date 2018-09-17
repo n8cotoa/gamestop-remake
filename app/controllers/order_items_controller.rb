@@ -1,7 +1,10 @@
 class OrderItemsController < ApplicationController
+
   def create
     @order = current_order
+    @order.user_id = current_user.id
     @item = @order.order_items.new(item_params)
+    byebug
     @order.save
     session[:order_id] = @order.id
     redirect_to products_path
@@ -15,7 +18,7 @@ class OrderItemsController < ApplicationController
     redirect_to cart_path
   end
 
-private
+  private
 
   def item_params
     params.require(:order_item).permit(:quantity, :product_id)
