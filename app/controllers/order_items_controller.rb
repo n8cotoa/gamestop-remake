@@ -7,11 +7,13 @@ class OrderItemsController < ApplicationController
     @order.save
     if @order.save
       flash[:notice] = "Item added to cart."
+      respond_to do |format|
+        format.js
+      end
     else
       flash[:alert] = "Please enter a quantity."
     end
     session[:order_id] = @order.id
-    redirect_to products_path
   end
 
   def destroy

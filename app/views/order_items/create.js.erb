@@ -1,0 +1,3 @@
+// $('#product<%=@item.product_id%>').hide().after('<%= j render("price") %>')
+$('.cart_price').remove()
+$('.price-container').append('<%= j render("price") %>')
