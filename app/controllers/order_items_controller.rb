@@ -2,7 +2,9 @@ class OrderItemsController < ApplicationController
 
   def create
     @order = current_order
-    @order.user_id = current_user
+    if current_user
+      @order.user_id = current_user.id
+    end
     @item = @order.order_items.new(item_params)
     @order.save
     if @order.save

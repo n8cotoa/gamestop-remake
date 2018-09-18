@@ -9,3 +9,6 @@
 <% else %>
   <p>Your shopping cart is empty.</p>
 <% end %>
+
+<%= link_to 'Checkout', products_path, class: 'btn btn-primary', remote: true %>
+<%= link_to 'Clear Cart', cart_path(@order), :data => {:method => 'delete'}, class: 'btn btn-danger' %>
