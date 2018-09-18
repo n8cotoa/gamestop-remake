@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :order_items
   resources :orders
   resource :cart, only: [:show, :destroy]
+  post 'checkout', :to => 'products#checkout'
+  get 'checkout', :to => 'products#checkout'
 end

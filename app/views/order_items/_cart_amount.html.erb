@@ -1,0 +1,5 @@
+<% if current_order.order_items.count == 1 %>
+  <%= current_order.calculate_overall_quantity %> Item
+<% else %>
+  <%= current_order.calculate_overall_quantity %> Items
+<% end %>

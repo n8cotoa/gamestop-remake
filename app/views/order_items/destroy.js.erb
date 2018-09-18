@@ -1,2 +1,3 @@
-$('#item<%= @item.id %>').remove()
+$('#item<%= @item.id %>').fadeOut()
 $('.price-container').text('<%= j render("price") %>')
+$('.amount-container').text('<%= j render("cart_amount") %>')
