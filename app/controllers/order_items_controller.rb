@@ -1,19 +1,18 @@
-class OrderItemsController < ApplicationController
+# frozen_string_literal: true
 
+class OrderItemsController < ApplicationController
   def create
     @order = current_order
-    if current_user
-      @order.user_id = current_user.id
-    end
+    @order.user_id = current_user.id if current_user
     @item = @order.order_items.new(item_params)
     @order.save
     if @order.save
-      flash[:notice] = "Item added to cart."
+      flash[:notice] = 'Item added to cart.'
       respond_to do |format|
         format.js
       end
     else
-      flash[:alert] = "Please enter a quantity."
+      flash[:alert] = 'Please enter a quantity.'
     end
     session[:order_id] = @order.id
   end

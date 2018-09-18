@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Order < ApplicationRecord
   has_many :order_items
   has_many :products, through: :order_items
@@ -6,19 +8,17 @@ class Order < ApplicationRecord
   before_create :update_status
 
   def calculate_total
-    self.order_items.collect { |item| item.product.price * item.quantity }.sum
+    order_items.collect { |item| item.product.price * item.quantity }.sum
   end
 
   def calculate_overall_quantity
-    self.order_items.collect { |item| item.quantity }.sum
+    order_items.collect(&:quantity).sum
   end
 
   private
 
   def update_status
-    if self.status == nil?
-      self.status = "In progess."
-    end
+    self.status = 'In progess.' if status == nil?
   end
 
   def update_total
