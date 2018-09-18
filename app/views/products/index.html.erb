@@ -1,9 +1,23 @@
-<% @products.each do |product| %>
- <p><%= product.name %> | <%= number_to_currency product.price %></p>
-<%= image_tag product.cover_image %>
-  <%=form_for @order_item do |f| %>
-    <%= f.hidden_field :product_id, value: product.id %>
-    <%= f.number_field :quantity %>
-    <%= f.submit "Add to cart" %>
-  <% end %>
-<% end %>
+<div class="col">
+  <div class="row">
+    <% @products.each do |product| %>
+     <div class='card' style="width: 12rem;">
+        <%= image_tag product.cover_image, class: 'card-img-top' %>
+        <p class='card-title'><%= product.name %></p>
+        <p class='card-subtitle'><%= number_to_currency product.price %></p>
+        <div class="card-body">
+          <%=form_for @order_item do |f| %>
+            <div class="card-form-container">
+              <div class="form-group">
+                <%= f.hidden_field :product_id, value: product.id %>
+                <%= f.number_field :quantity, class: 'form-control' %>
+                <%= f.submit "Add to cart", class: 'btn btn-primary' %>
+              </div>
+
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

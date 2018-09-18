@@ -2,10 +2,14 @@ class OrderItemsController < ApplicationController
 
   def create
     @order = current_order
-    @order.user_id = current_user.id
+    @order.user_id = current_user
     @item = @order.order_items.new(item_params)
-    byebug
     @order.save
+    if @order.save
+      flash[:notice] = "Item added to cart."
+    else
+      flash[:alert] = "Please enter a quantity."
+    end
     session[:order_id] = @order.id
     redirect_to products_path
   end

@@ -8,7 +8,7 @@
 response = RestClient::Request.execute(
   method: :get,
   url: 'https://api-endpoint.igdb.com/games/?fields=id,name,cover&limit=50',
-  headers: {user_key: '7686c1ee39b6c08ab6ab4e7788756e23'}
+  headers: {user_key: ENV['game_key']}
   )
 
 parsed_info = JSON.parse(response)
