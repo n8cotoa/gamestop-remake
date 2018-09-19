@@ -35,6 +35,11 @@
         <% end  %>
       </ul>
       <ul class='navbar-nav ml-auto'>
+        <% if current_user %>
+        <li class="nav-item">
+          <span class="nav-link"><%=current_user.email %></span>
+        </li>
+        <% end %>
         <li class='nav-item'>
           <li class="nav-link">
             <span class=" amount-container"><%= render 'order_items/cart_amount' %></span>
@@ -55,8 +60,9 @@
   </nav>
   <body>
     <div class="container">
-      <%= flash[:notice] %>
-      <%= flash[:alert] %>
+      <div class="flash_message">
+
+      </div>
       <%= yield %>
     </div>
   </body>

@@ -1,3 +1,6 @@
 $('.price-container').text('<%= j render("price") %>')
 $('.amount-container').text('<%= j render("cart_amount") %>')
 $('.quantity-input').val("")
+$('.flash_message').html('<%= j render("layouts/flash") %>')
+$('.flash_container').fadeOut(1000)
+<% flash.clear %>

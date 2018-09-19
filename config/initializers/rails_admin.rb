@@ -9,6 +9,15 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_user)
 
+  config.authorize_with do |_controller|
+    if current_user.nil?
+      redirect_to main_app.new_user_session_path, flash: { warning: 'Please Login to Continue..' }
+    elsif !current_user.admin?
+      redirect_to main_app.products_path, flash: { danger: 'You are not Admin bro!' }
+    end
+  end
+
+
   ## == Cancan ==
   # config.authorize_with :cancan
 

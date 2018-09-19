@@ -18,4 +18,10 @@ class ApplicationController < ActionController::Base
       Order.new
     end
   end
+
+  def authorize_admin
+    if current_user.admin == false
+      redirect_to products_path
+    end
+  end
 end

@@ -7,12 +7,12 @@ class OrderItemsController < ApplicationController
     @item = @order.order_items.new(item_params)
     @order.save
     if @order.save
-      flash[:notice] = 'Item added to cart.'
+      flash[:success] = 'Item added to cart.'
       respond_to do |format|
         format.js
       end
     else
-      flash[:alert] = 'Please enter a quantity.'
+      flash[:danger] = 'Please enter a quantity.'
     end
     session[:order_id] = @order.id
   end
