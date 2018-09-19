@@ -10,5 +10,4 @@ Rails.application.routes.draw do
   resources :orders
   resources :charges
   resource :cart, only: %i[show destroy], path: :checkout
-  get '/checkout', to: 'carts#continue_checkout'
 end

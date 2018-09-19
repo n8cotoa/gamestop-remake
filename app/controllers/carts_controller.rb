@@ -5,7 +5,9 @@ class CartsController < ApplicationController
     @order_items = current_order.order_items
     @order = current_order
     @amount = @order.total_price
-    @charge = @amount * 100
+    if @amount != nil
+      @charge = @amount * 100
+    end
   end
 
   def destroy
@@ -15,7 +17,4 @@ class CartsController < ApplicationController
     redirect_to products_path
   end
 
-  def continue_checkout
-
-  end
 end

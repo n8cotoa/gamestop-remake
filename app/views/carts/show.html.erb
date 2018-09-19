@@ -10,7 +10,7 @@
   <% else %>
     <p>Your shopping cart is empty.</p>
   <% end %>
-  <%= link_to 'Continue Checkout', checkout_path, class: 'btn btn-primary', remote: true %>
+  <%= link_to 'Continue Checkout', cart_path, class: 'btn btn-primary', remote: true %>
   <%= link_to 'Clear Cart', cart_path(@order), :data => {:method => 'delete'}, class: 'btn btn-danger' %>
 </div>
 

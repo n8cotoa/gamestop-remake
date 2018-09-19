@@ -1,2 +1,4 @@
-$('#stripe_payment').append('<%= j render("charges/new") %>')
-$('#shopping_cart').hide()
+<% if @amount != nil && @amount > 0 %>
+  $('#stripe_payment').append('<%= j render("charges/new") %>')
+  $('#shopping_cart').hide()
+<% end %>

@@ -8,7 +8,11 @@ class ChargesController < ApplicationController
   def create
     # Amount in cents
     @order = current_order
-    @amount = @order.total_price * 100
+    if @order.total_price != nil
+      @amount = @order.total_price * 100
+    else
+      @amount = 0
+    end
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
