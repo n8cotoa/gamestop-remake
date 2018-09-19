@@ -25,6 +25,7 @@ class ChargesController < ApplicationController
     @order.status = "Paid"
     @order.save
   end
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
