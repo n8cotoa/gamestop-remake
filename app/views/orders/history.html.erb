@@ -1,0 +1,14 @@
+<h1>Your Orders:</h1>
+
+<% @orders.each do |order| %>
+  <% if order.status == "Paid" %>
+    <div class="order">
+      <% order.order_items.each do |item| %>
+        <p><%= item.product.name %> | <%= item.quantity %> | <%= number_to_currency (item.product.price * item.quantity) %></p>
+      <% end %>
+      <p>Order Placed: <%= order.updated_at.strftime('%B %d, %Y')%></p>
+      <p>Order Total: <%= number_to_currency order.total_price %></p>
+    </div>
+    <hr>
+  <% end %>
+<% end %>

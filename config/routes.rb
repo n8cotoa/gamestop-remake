@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :products
   resources :order_items
   resources :orders
+   get 'history', to: 'orders#history'
   resources :charges
   resource :cart, only: %i[show destroy], path: :checkout
 end
