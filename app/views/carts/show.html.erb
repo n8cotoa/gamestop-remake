@@ -9,6 +9,6 @@
 <% else %>
   <p>Your shopping cart is empty.</p>
 <% end %>
-
+<% binding.pry %>
 <%= link_to 'Checkout', checkout_path, class: 'btn btn-primary' %>
 <%= link_to 'Clear Cart', cart_path(@order), :data => {:method => 'delete'}, class: 'btn btn-danger' %>

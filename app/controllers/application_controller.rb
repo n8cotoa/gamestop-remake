@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if current_user
-      if Order.find_by('user_id = ?', current_user.id) != nil
-        Order.find_by('user_id = ?', current_user.id)
+      order = current_user.orders.last
+      if order != nil && order.status != 'Paid'
+        order
       else
         Order.new
       end

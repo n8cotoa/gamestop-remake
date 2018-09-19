@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :products
   resources :order_items
   resources :orders
+  resources :charges
   resource :cart, only: %i[show destroy]
   post 'checkout', to: 'products#checkout'
   get 'checkout', to: 'products#checkout'
