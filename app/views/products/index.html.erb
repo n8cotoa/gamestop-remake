@@ -7,8 +7,8 @@
         <p class='card-subtitle'><%= number_to_currency product.price %></p>
         <div class="card-body">
           <%=form_for @order_item, remote: true do |f| %>
-            <div class="card-form-container">
-              <div class="form-group">
+            <div class="card-form-container add-to-cart-btn">
+              <div class="form-group container ">
                 <%= f.hidden_field :product_id, value: product.id %>
                 <%= f.number_field :quantity, class: 'form-control quantity-input' %>
                 <%= f.submit "Add to cart", class: 'btn btn-primary', id: "product#{product.id}", remote: true %>
