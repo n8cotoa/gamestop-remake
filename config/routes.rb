@@ -13,4 +13,5 @@ Rails.application.routes.draw do
    get 'history', to: 'orders#history'
   resources :charges
   resource :cart, only: %i[show destroy], path: :checkout
+  resources :reviews
 end
