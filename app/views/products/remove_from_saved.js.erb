@@ -1,0 +1,4 @@
+$('#product_<%=@saved_item.id%>').fadeOut(500)
+$('.flash_message').html('<%= j render("layouts/flash") %>')
+$('.flash_container').fadeOut(1500)
+<% flash.clear %>

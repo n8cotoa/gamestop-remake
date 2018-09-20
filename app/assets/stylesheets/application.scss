@@ -19,9 +19,26 @@ body {
 }
 
 .card-body {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
-p {
+.btn {
+  margin-bottom: 5px;
+}
+
+// p {
+//   text-align: center;
+// }
+
+.flash_message {
+  position: fixed;
+  z-index: 100;
+  top: 50vh;
+  width: 100%;
+}
+
+.flash_container {
+  width: 50%;
+  margin: auto;
   text-align: center;
 }

@@ -1,0 +1,10 @@
+<h1>Saved stuff</h1>
+<% if @saved.any? %>
+  <ol>
+  <% @saved.each do |item| %>
+    <li id="product_<%=item.id%>"><%= item.name %> <%= link_to 'Remove', remove_from_saved_path(:product_id => item.id), :data => {:method => 'delete'}, remote: true%></li>
+  <% end %>
+  </ol>
+<% else %>
+  <p>There are no saved products!</p>
+<% end %>
