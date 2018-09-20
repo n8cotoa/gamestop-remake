@@ -6,8 +6,9 @@ class ReviewsController < ApplicationController
     if review.save
       flash[:success] = "Your review was added!"
       redirect_to product_path(@product)
-    end
+    else
     redirect_to product_path(@product)
+    end
   end
 
   private

@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @order_item = current_order.order_items.new
     @review = Review.new
+    @reviews = Review.where(:product_id => @product.id).paginate(:page => params[:page])
   end
 
   def checkout

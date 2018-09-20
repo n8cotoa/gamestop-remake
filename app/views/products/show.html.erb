@@ -36,8 +36,12 @@
  </div>
 
  <div class="posted_reviews">
- <% @product.reviews.each do |review| %>
+ <% @reviews.each do |review| %>
   <p><%= review.content %></p>
   <p><%= review.user.email %></p>
   <% end %>
  </div>
+<div class="review_list">
+<%= will_paginate @reviews %>
+<%= page_entries_info @reviews %>
+</div>
