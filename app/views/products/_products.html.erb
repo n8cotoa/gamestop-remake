@@ -1,5 +1,6 @@
 <div class="products_page">
   <%= page_entries_info @products %>
+    <%= will_paginate @products, :style => 'color:green'%>
   <div class="col">
     <div class="row">
       <% @products.each do |product| %>
@@ -27,6 +28,6 @@
     </div>
   </div>
 
-  <%= will_paginate @products, :style => 'color:green'%>
+
 
 </div>

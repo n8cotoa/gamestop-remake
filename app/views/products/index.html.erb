@@ -1,6 +1,9 @@
 <%= render 'products' %>
 <script>
   $(function(){
-    $('.pagination a').attr('data-remote', 'true')
+    $('.pagination a').attr({'data-remote': 'true', 'class': 'page-link'});
+    $('.pagination em').attr('class', 'page-link active')
+    $('.pagination span').attr('class', 'page-link')
+    $('div .pagination').attr('class', 'justify-content-center pagination')
   });
 </script>
