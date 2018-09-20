@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+Product.destroy_all
 
 response = RestClient::Request.execute(
   method: :get,
@@ -11,6 +12,9 @@ parsed_info = JSON.parse(response)
 parsed_info.each do |game|
   ran_num = Random.rand(5..25)
   unless game['cover'].nil?
-    Product.create(name: game['name'], price: ran_num, cover_image: game['cover']['url'])
+    Product.create!(name: game['name'],
+                  price: ran_num,
+                  cover_image: game['cover']['url'],
+                  description: Faker::Lorem.paragraph_by_chars(256, false))
   end
 end

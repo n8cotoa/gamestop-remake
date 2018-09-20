@@ -9,23 +9,23 @@ body {
   margin-top: 75px;
 }
 
-.card {
-  margin: 10px;
-}
+// .card {
+//   margin: 10px;
+// }
 
-.products_cards {
-  position: absolute;
-  right:    0;
-  bottom:   0;
-}
+// .products_cards {
+//   position: absolute;
+//   right:    0;
+//   bottom:   0;
+// }
 
 .form-control {
   margin-bottom: 10px;
 }
 
-.card-body {
-  margin-bottom: 80px;
-}
+// .card-body {
+//   margin-bottom: 80px;
+// }
 
 .btn {
   margin-bottom: 5px;
@@ -51,4 +51,12 @@ body {
 .active {
   color: white;
   background-color: blue;
+}
+
+.page-link:first-child {
+  border-radius: 20px 0px 0px 20px;
+}
+
+.page-link:last-child {
+  border-radius: 0px 20px 20px 0px;
 }
