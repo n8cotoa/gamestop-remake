@@ -1,26 +1,6 @@
-<div class="col">
-  <div class="row">
-    <% @products.each do |product| %>
-     <div class='card' style="width: 12rem;">
-        <%= image_tag product.cover_image, class: 'card-img-top' %>
-        <p class='card-title'><%= link_to product.name, product_path(product) %></p>
-        <p class='card-subtitle'><%= number_to_currency product.price %></p>
-        <div class="card-body">
-          <%=form_for @order_item, remote: true do |f| %>
-            <div class="card-form-container add-to-cart-btn">
-              <div class="form-group container products_cards ">
-                <%= f.hidden_field :product_id, value: product.id %>
-                <%= f.number_field :quantity, class: 'form-control quantity-input' %>
-                <%= f.submit "Add to cart", class: 'btn btn-primary', id: "product#{product.id}", remote: true %>
-              </div>
-            </div>
-          <% end %>
-          <%= form_for product, remote: true do |f| %>
-            <%= f.hidden_field :product_id, value: product.id %>
-            <%= f.submit 'Save', class: 'btn btn-secondary', id: "product#{product.id}_save", remote: true %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+<%= render 'products' %>
+<script>
+  $(function(){
+    $('.pagination a').attr('data-remote', 'true')
+  });
+</script>

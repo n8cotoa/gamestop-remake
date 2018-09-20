@@ -5,4 +5,5 @@ class Product < ApplicationRecord
   has_many :orders, through: :order_items
   has_and_belongs_to_many :users
   has_many :reviews
+  self.per_page = 10
 end
