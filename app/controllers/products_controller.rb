@@ -20,6 +20,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find(params[:id])
+    @order_item = current_order.order_items.new
+  end
+
   def checkout
     @order = current_order
     @order_items = current_order.order_items
